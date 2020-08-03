@@ -5,7 +5,7 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-import { ImageURISource, ImageRequireSource } from "react-native";
+import { Source } from "react-native-fast-image";
 export declare type Dimensions = {
     width: number;
     height: number;
@@ -14,4 +14,4 @@ export declare type Position = {
     x: number;
     y: number;
 };
-export declare type ImageSource = ImageURISource | ImageRequireSource;
+export declare type ImageSource = Source;
