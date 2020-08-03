@@ -41,6 +41,7 @@ type Props = {
   delayLongPress: number;
   swipeToCloseEnabled?: boolean;
   doubleTapToZoomEnabled?: boolean;
+  CustomImageComponent?: React.ReactNode;
 };
 
 const ImageItem = ({
@@ -51,6 +52,7 @@ const ImageItem = ({
   delayLongPress,
   swipeToCloseEnabled = true,
   doubleTapToZoomEnabled = true,
+  CustomImageComponent,
 }: Props) => {
   const scrollViewRef = useRef<ScrollView>(null);
   const [loaded, setLoaded] = useState(false);
@@ -113,6 +115,10 @@ const ImageItem = ({
     [imageSrc, onLongPress]
   );
 
+  const ImageComponent = CustomImageComponent
+    ? Animated.createAnimatedComponent(CustomImageComponent)
+    : Animated.Image;
+
   return (
     <View>
       <ScrollView
@@ -137,7 +143,7 @@ const ImageItem = ({
           onLongPress={onLongPressHandler}
           delayLongPress={delayLongPress}
         >
-          <Animated.Image
+          <ImageComponent
             source={imageSrc}
             style={imageStylesWithOpacity}
             onLoad={() => setLoaded(true)}

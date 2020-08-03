@@ -18,6 +18,7 @@ declare type Props = {
   delayLongPress: number;
   swipeToCloseEnabled?: boolean;
   doubleTapToZoomEnabled?: boolean;
+  CustomImageComponent?: React.ReactNode;
 };
 
 declare const _default: React.MemoExoticComponent<({
@@ -27,6 +28,7 @@ declare const _default: React.MemoExoticComponent<({
   onLongPress,
   delayLongPress,
   swipeToCloseEnabled,
+  CustomImageComponent,
 }: Props) => JSX.Element>;
 
 export default _default;

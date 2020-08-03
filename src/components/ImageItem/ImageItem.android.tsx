@@ -37,6 +37,7 @@ type Props = {
   delayLongPress: number;
   swipeToCloseEnabled?: boolean;
   doubleTapToZoomEnabled?: boolean;
+  CustomImageComponent?: React.ReactNode;
 };
 
 const ImageItem = ({
@@ -47,6 +48,7 @@ const ImageItem = ({
   delayLongPress,
   swipeToCloseEnabled = true,
   doubleTapToZoomEnabled = true,
+  CustomImageComponent,
 }: Props) => {
   const imageContainer = React.createRef<any>();
   const imageDimensions = useImageDimensions(imageSrc);
@@ -111,6 +113,9 @@ const ImageItem = ({
 
     scrollValueY.setValue(offsetY);
   };
+  const ImageComponent = CustomImageComponent
+    ? Animated.createAnimatedComponent(CustomImageComponent)
+    : Animated.Image;
 
   return (
     <Animated.ScrollView
@@ -127,7 +132,7 @@ const ImageItem = ({
         onScrollEndDrag,
       })}
     >
-      <Animated.Image
+      <ImageComponent
         {...panHandlers}
         source={imageSrc}
         style={imageStylesWithOpacity}
