@@ -27,6 +27,10 @@ import { getImageStyles, getImageTransform } from "../../utils";
 import { ImageSource } from "../../@types";
 import { ImageLoading } from "./ImageLoading";
 
+import FastImage from "react-native-fast-image";
+
+const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
+
 const SWIPE_CLOSE_OFFSET = 75;
 const SWIPE_CLOSE_VELOCITY = 1.55;
 const SCREEN = Dimensions.get("screen");
@@ -143,7 +147,7 @@ const ImageItem = ({
           onLongPress={onLongPressHandler}
           delayLongPress={delayLongPress}
         >
-          <ImageComponent
+          <AnimatedFastImage
             source={imageSrc}
             style={imageStylesWithOpacity}
             onLoad={() => setLoaded(true)}
