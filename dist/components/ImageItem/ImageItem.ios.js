@@ -11,8 +11,6 @@ import useDoubleTapToZoom from "../../hooks/useDoubleTapToZoom";
 import useImageDimensions from "../../hooks/useImageDimensions";
 import { getImageStyles, getImageTransform } from "../../utils";
 import { ImageLoading } from "./ImageLoading";
-import FastImage from "react-native-fast-image";
-const AnimatedFastImage = Animated.createAnimatedComponent(FastImage);
 const SWIPE_CLOSE_OFFSET = 75;
 const SWIPE_CLOSE_VELOCITY = 1.55;
 const SCREEN = Dimensions.get("screen");
@@ -67,7 +65,7 @@ const ImageItem = ({ imageSrc, onZoom, onRequestClose, onLongPress, delayLongPre
     })}>
         {(!loaded || !imageDimensions) && <ImageLoading />}
         <TouchableWithoutFeedback onPress={doubleTapToZoomEnabled ? handleDoubleTap : undefined} onLongPress={onLongPressHandler} delayLongPress={delayLongPress}>
-          <AnimatedFastImage source={imageSrc} style={imageStylesWithOpacity} onLoad={() => setLoaded(true)}/>
+          <ImageComponent source={imageSrc} style={imageStylesWithOpacity} onLoad={() => setLoaded(true)}/>
         </TouchableWithoutFeedback>
       </ScrollView>
     </View>);

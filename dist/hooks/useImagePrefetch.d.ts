@@ -5,5 +5,6 @@
  * LICENSE file in the root directory of this source tree.
  *
  */
-declare const useImagePrefetch: (images: import("react-native-fast-image").Source[]) => void;
+import { ImageSource } from "../@types";
+declare const useImagePrefetch: (images: ImageSource[]) => void;
 export default useImagePrefetch;

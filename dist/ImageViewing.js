@@ -78,5 +78,5 @@ const styles = StyleSheet.create({
         bottom: 0,
     },
 });
-const EnhancedImageViewing = (props) => (<ImageViewing key={props.imageIndex} {...props}/>);
+const EnhancedImageViewing = (props) => <ImageViewing {...props}/>;
 export default EnhancedImageViewing;
